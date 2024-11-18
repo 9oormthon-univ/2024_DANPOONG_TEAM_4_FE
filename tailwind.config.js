@@ -63,6 +63,9 @@ module.exports = {
       zIndex: {
         footer: '10',
       },
+      boxShadow: {
+        bottomTab: '2px -5px 15px 0px rgba(85, 94, 88, 0.09)',
+      },
     },
   },
   plugins: [],
