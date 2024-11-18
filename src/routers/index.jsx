@@ -9,6 +9,25 @@ import MainPage from '@pages/MainPage';
   isHide는 헤더, 푸터 모두 필요없을경우, default는 false입니다.
 */
 
+const mainPageDefaults = {
+  isHeader: true,
+  leftIcon: false,
+  content: (location) => (
+    <span className='flex items-center gap-x-2'>
+      <HiLocationMarker />
+      <p className='text-xl'>
+        {location.loading
+          ? '주소를 가져오는 중...'
+          : location.error
+            ? '주소를 불러올 수 없습니다'
+            : location.address || '위치를 설정하세요'}
+      </p>
+    </span>
+  ),
+  rightIcon: false,
+  isFooter: true,
+};
+
 const RoutesMap = [
   {
     path: '/',
@@ -27,23 +46,7 @@ const RoutesMap = [
   {
     path: '/main',
     element: <MainPage />,
-    isHeader: true,
-    leftIcon: false,
-    // 동적요소를 콜백함수로 처리
-    content: (location) => (
-      <span className='flex items-center gap-x-2'>
-        <HiLocationMarker />
-        <p className='text-xl'>
-          {location.loading
-            ? '주소를 가져오는 중...'
-            : location.error
-              ? '주소를 불러올 수 없습니다'
-              : location.address || '위치를 설정하세요'}
-        </p>
-      </span>
-    ),
-    rightIcon: false,
-    isFooter: true,
+    ...mainPageDefaults,
   },
   // 다른 고객 관련 라우트들...
 ];
