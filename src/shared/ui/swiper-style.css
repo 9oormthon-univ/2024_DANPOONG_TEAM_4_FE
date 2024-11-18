@@ -1,0 +1,22 @@
+.swiper-pagination {
+  text-align: center;
+}
+
+.swiper-pagination-bullet {
+  background: #b3b3b3 !important;
+  opacity: 1 !important;
+  border-radius: 13px !important;
+  height: 5px !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #53b175 !important;
+  width: 16px !important;
+  border-radius: 13px !important;
+  height: 5px !important;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  display: none;
+}

@@ -66,6 +66,15 @@ module.exports = {
       boxShadow: {
         bottomTab: '2px -5px 15px 0px rgba(85, 94, 88, 0.09)',
       },
+      keyframes: {
+        slideup: {
+          '0%': { transform: 'translateY(100%)' },
+          '100%': { transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        slideup: 'slideup 0.5s ease-in-out forwards',
+      },
     },
   },
   plugins: [],

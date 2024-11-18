@@ -1,11 +1,11 @@
-import { useSelector } from 'react-redux';
+import Banners from '@components/main/Banners';
 
 function MainPage() {
-  const location = useSelector((state) => state.location);
-
-  console.log(location);
-
-  return <div className='bg-yellow-300'>메인페이지입니다</div>;
+  return (
+    <div>
+      <Banners />
+    </div>
+  );
 }
 
 export default MainPage;

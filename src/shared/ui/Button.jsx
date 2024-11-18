@@ -8,27 +8,17 @@ const buttonColorMap = {
 
 const buttonWeak = 'bg-text50 text-text20';
 
-const buttonSizeMap = {
-  small: 'px-3 py-1 text-sm',
-  medium: 'px-4 py-2 text-base',
-  large: 'px-5 py-3 text-lg',
-};
-
 function Button({
   color = 'primary',
-  size = 'small',
   weak = false,
-  full = false,
   disabled = false,
   children,
   ...props
 }) {
   const buttonClasses = classNames(
-    'font-semibold rounded-common transition-all duration-150',
+    'w-full text-lg py-5 rounded-common transition-all duration-150',
     weak ? buttonWeak : buttonColorMap[color],
-    buttonSizeMap[size],
     {
-      'w-full': full,
       'opacity-30 cursor-not-allowed': disabled,
     },
   );
