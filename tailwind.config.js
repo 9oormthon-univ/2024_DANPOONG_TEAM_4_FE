@@ -13,6 +13,12 @@ module.exports = {
       borderRadius: {
         common: '18px',
       },
+      maxWidth: {
+        mobile: '500px',
+      },
+      zIndex: {
+        footer: '10',
+      },
     },
   },
   plugins: [],
