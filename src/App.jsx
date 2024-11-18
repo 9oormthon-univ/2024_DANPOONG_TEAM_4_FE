@@ -1,10 +1,11 @@
 import { Route, Routes as ReactRouters } from 'react-router-dom';
 
+import RoutesMap from '@routers';
+
 import Layout from './layout';
-import Routes from './routers';
 
 function App() {
-  const elements = Routes.map((item) => (
+  const elements = RoutesMap.map((item) => (
     <Route key={item.path} path={item.path} element={item.element} />
   ));
 
