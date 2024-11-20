@@ -16,7 +16,7 @@ function Button({
   ...props
 }) {
   const buttonClasses = classNames(
-    'w-full text-lg py-5 rounded-common transition-all duration-150',
+    'w-full text-lg py-4 rounded-common transition-all duration-150',
     weak ? buttonWeak : buttonColorMap[color],
     {
       'opacity-30 cursor-not-allowed': disabled,

@@ -11,14 +11,15 @@ module.exports = {
         primary: '#53B175',
         text10: '#FFFFFF',
         text20: '#FFF9FF',
+        text25: '#EBEBEB',
         text30: '#FCFCFCB2',
         text50: '#B3B3B3',
         text100: '#7C7C7C',
         text150: '#4C4F4D',
         text200: '#181725',
         text300: '#030303',
-        kakao: '#FEE500',
-        'kakao-text': '#000000 85%',
+        red: '#D9534F',
+        star: '#F3603F',
       },
       fontSize: {
         xs: [

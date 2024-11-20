@@ -1,4 +1,4 @@
-import { Outlet, useLocation } from 'react-router-dom';
+import { matchPath, Outlet, useLocation } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
 
@@ -13,6 +13,7 @@ import useAddressLocation from '../hooks/use-address-location';
 
 function Layout() {
   const location = useLocation();
+
   const { latitude, longitude } = useSelector((state) => state.location);
 
   const { addressData, getAddressLocation } = useAddressLocation();
@@ -23,8 +24,8 @@ function Layout() {
     }
   }, [latitude, longitude, getAddressLocation]);
 
-  const currentRoute = RoutesMap.find(
-    (route) => route.path === location.pathname,
+  const currentRoute = RoutesMap.find((route) =>
+    matchPath(route.path, location.pathname),
   );
 
   // 조건부 렌더링을 위한 속성

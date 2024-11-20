@@ -16,14 +16,14 @@ function MainPage() {
         <Alerts />
       </section>
 
-      <section>
+      <section className='my-4'>
         <TitleRow title='정기 계약 현황' sub='전체보기' />
         <Spacing size={6} />
         <Contracts />
       </section>
 
       <section>
-        <TitleRow title='정기 계약 현황' sub='전체보기' />
+        <TitleRow title='내 주변 소상공인 상점' sub='전체보기' />
         <Spacing size={6} />
         <Stores />
       </section>
