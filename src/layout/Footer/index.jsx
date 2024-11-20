@@ -43,7 +43,7 @@ function Footer() {
     [],
   );
   return (
-    <section className='grid h-full grid-cols-5 place-items-center rounded-t-common shadow-bottomTab'>
+    <section className='grid h-full grid-cols-5 place-items-center rounded-t-common shadow-bottomTab '>
       {ICONS.map((icon) => (
         <Tab key={icon.id} icon={icon.icon} url={icon.url} name={icon.name} />
       ))}
