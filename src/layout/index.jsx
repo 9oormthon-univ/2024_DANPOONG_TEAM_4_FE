@@ -43,7 +43,7 @@ function Layout() {
 
   return (
     <div className='flex items-center justify-center overflow-auto'>
-      <div className='min-h-screen w-full max-w-mobile'>
+      <div className='w-full min-h-screen max-w-mobile'>
         {isHeader && (
           <Header leftIcon={leftIcon} content={content} rightIcon={rightIcon} />
         )}
@@ -60,7 +60,7 @@ function Layout() {
         </motion.main>
 
         {isFooter && (
-          <footer className='fixed inset-x-0 bottom-0 h-20 max-w-mobile'>
+          <footer className='fixed inset-x-0 bottom-0 h-20 z-footer max-w-mobile bg-text10'>
             <Footer />
           </footer>
         )}

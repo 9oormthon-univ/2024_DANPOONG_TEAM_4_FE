@@ -16,6 +16,7 @@ module.exports = {
         text100: '#7C7C7C',
         text150: '#4C4F4D',
         text200: '#181725',
+        text300: '#030303',
         kakao: '#FEE500',
         'kakao-text': '#000000 85%',
       },

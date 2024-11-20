@@ -1,4 +1,4 @@
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Navigation, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
@@ -12,7 +12,7 @@ import { DUMMY_BANNER } from '@/mocks/banners';
 function Banners() {
   return (
     <Swiper
-      modules={[Pagination, Navigation, Autoplay]}
+      modules={[Navigation, Autoplay]}
       slidesPerView={1}
       autoplay={{
         delay: 3_000,
@@ -20,17 +20,16 @@ function Banners() {
         pauseOnMouseEnter: true,
         reverseDirection: false,
       }}
-      pagination={{ clickable: true }}
       navigation
       className=''
     >
       {DUMMY_BANNER.map((image) => (
         <SwiperSlide key={image.id}>
-          <div className='flex size-full items-center justify-center'>
+          <div className='flex items-center justify-center size-full'>
             <img
               src={image.imageUrl}
               alt={`Banner ${image.id}`}
-              className='w-full object-cover'
+              className='object-cover w-full'
             />
           </div>
         </SwiperSlide>

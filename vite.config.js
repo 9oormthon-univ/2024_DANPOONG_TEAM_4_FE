@@ -13,6 +13,7 @@ export default defineConfig({
       { find: '@hooks', replacement: '/src/hooks' },
       { find: '@components', replacement: '/src/components' },
       { find: '@shared', replacement: '/src/shared' },
+      { find: '@mocks', replacement: '/src/mocks' },
     ],
   },
 });
