@@ -9,7 +9,7 @@ function FloatingButton({ label, onClick, disabled = false }) {
   }
 
   return createPortal(
-    <div className='fixed inset-x-0 bottom-0 animate-slideup bg-white px-4 pb-10'>
+    <div className='fixed inset-x-0 bottom-0 z-footer animate-slideup bg-white px-4 pb-10'>
       <Button onClick={onClick} disabled={disabled}>
         {label}
       </Button>

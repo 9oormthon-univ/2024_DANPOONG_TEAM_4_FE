@@ -10,8 +10,11 @@ import '@shared/ui/swiper-style.css';
 import { DUMMY_STORES } from '@mocks/stores';
 
 import Card from '@shared/ui/Card';
+import { useNavigate } from 'react-router-dom';
 
 function Stores() {
+  const navigate = useNavigate();
+
   return (
     <Swiper
       modules={[Pagination, Navigation]}
@@ -22,7 +25,11 @@ function Stores() {
     >
       {DUMMY_STORES.map((store) => (
         <SwiperSlide key={store.id}>
-          <Card storeName={store.name} category={store.category} />
+          <Card
+            storeName={store.name}
+            category={store.category}
+            onClick={() => navigate(`/detail/${store.id}`)}
+          />
         </SwiperSlide>
       ))}
     </Swiper>

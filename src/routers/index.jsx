@@ -3,6 +3,8 @@ import { HiLocationMarker } from 'react-icons/hi';
 import LandingPage from '@pages/LandingPage';
 import LoginPage from '@pages/LoginPage';
 import MainPage from '@pages/MainPage';
+import DetailPage from '../pages/DetailPage';
+import MapPage from '../pages/MapPage';
 
 // 다른 페이지 컴포넌트들도 여기에 import...
 /* isHeader, isFooter는 default가 true이므로 생략가능합니다
@@ -47,6 +49,22 @@ const RoutesMap = [
     path: '/main',
     element: <MainPage />,
     ...mainPageDefaults,
+  },
+  {
+    path: '/detail/:id',
+    element: <DetailPage />,
+    isHeader: true,
+    isFooter: false,
+    leftIcon: true,
+    content: <p className='text-xl'>상점 상세</p>,
+    rightIcon: true,
+  },
+  {
+    path: '/map',
+    element: <MapPage />,
+    ...mainPageDefaults,
+    leftIcon: true,
+    rightIcon: false,
   },
   // 다른 고객 관련 라우트들...
 ];
