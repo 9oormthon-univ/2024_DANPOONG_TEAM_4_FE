@@ -15,21 +15,25 @@ export const DUMMY_STORE = [
         },
         products: [
           {
+            productId: 'e1',
             imageUrl: '상품 이미지 URL',
             name: '양파 2kg',
             price: 8000,
           },
           {
+            productId: 'e2',
             imageUrl: '상품 이미지 URL',
             name: '상추 500g',
             price: 1500,
           },
           {
+            productId: 'e3',
             imageUrl: '상품 이미지 URL',
             name: '상추 300g',
             price: 1500,
           },
           {
+            productId: 'e4',
             imageUrl: '상품 이미지 URL',
             name: '상추 100g',
             price: 1500,
