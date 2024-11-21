@@ -19,18 +19,19 @@ function ProductList({ id, products }) {
 
   return (
     <div>
-      {products.map((product, index) => {
-        const { productId, name, price } = product;
+      {products.map((product) => {
+        const { productId, name, price, quantity } = product;
         const [title, unit] = name.split(' ');
 
         return (
-          <div className='py-6 border-b' key={index}>
+          <div className='py-6 border-b' key={productId}>
             <ProductCard
               productId={productId}
+              count={quantity}
               name={title}
               unit={unit}
               price={price}
-              closeHandler={() => removeHandler(name)}
+              closeHandler={() => removeHandler(productId)}
             />
           </div>
         );
