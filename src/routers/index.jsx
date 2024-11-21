@@ -5,6 +5,7 @@ import LoginPage from '@pages/LoginPage';
 import MainPage from '@pages/MainPage';
 import DetailPage from '../pages/DetailPage';
 import MapPage from '../pages/MapPage';
+import SalesPage from '../pages/SalesPage';
 
 // 다른 페이지 컴포넌트들도 여기에 import...
 /* isHeader, isFooter는 default가 true이므로 생략가능합니다
@@ -57,6 +58,15 @@ const RoutesMap = [
     isFooter: false,
     leftIcon: true,
     content: <p className='text-xl'>상점 상세</p>,
+    rightIcon: true,
+  },
+  {
+    path: '/detail/:id/sales',
+    element: <SalesPage />,
+    isHeader: true,
+    isFooter: false,
+    leftIcon: true,
+    content: <p className='text-xl'>판매 품목</p>,
     rightIcon: true,
   },
   {

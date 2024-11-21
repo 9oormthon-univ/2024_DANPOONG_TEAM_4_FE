@@ -1,3 +1,6 @@
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
 import { DUMMY_STORE } from '@mocks/store';
@@ -15,10 +18,21 @@ import RatingStars from '@shared/ui/RatingStars';
 import Tag from '@shared/ui/Tag';
 import FloatingButton from '@shared/ui/FloatingButton';
 
+import { addProducts } from '@/store/features/store-products-reducer';
+
 function DetailPage() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const { favorites, toggleHandler, isLoading } = useFavoriteStore();
 
-  const { description, star, location, products } = DUMMY_STORE[0].data.store;
+  const { id, description, star, location, products } =
+    DUMMY_STORE[0].data.store;
+
+  const handleNavigateToSales = () => {
+    dispatch(addProducts(products));
+    navigate(`/detail/${id}/sales`);
+  };
 
   if (isLoading) {
     // 추후 Loader로 변경 예정
@@ -41,12 +55,12 @@ function DetailPage() {
 
       <Description description={description} />
 
-      <section className='flex items-center justify-between border-b py-6'>
+      <section className='flex items-center justify-between py-6 border-b'>
         <p>평점</p>
         <RatingStars rating={star} />
       </section>
 
-      <section className='border-b py-4'>
+      <section className='py-4 border-b'>
         <MapSection lat={location.latitude} lng={location.longitude} />
       </section>
 
@@ -54,13 +68,13 @@ function DetailPage() {
         <section className='flex items-center justify-between py-4'>
           <p>판매 품목</p>
           <span className='flex items-center gap-x-2'>
-            <Tag label='자세히 보기' onClick={() => {}} />
+            <Tag label='자세히 보기' onClick={handleNavigateToSales} />
             <MdKeyboardArrowRight size={20} />
           </span>
         </section>
         <Sales products={products} />
       </>
-      <FloatingButton label='더 보러 가기' />
+      <FloatingButton label='더 보러 가기' onClick={handleNavigateToSales} />
     </div>
   );
 }

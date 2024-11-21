@@ -12,9 +12,11 @@ import {
 } from 'redux-persist';
 
 import currentLocationReducer from './features/current-location-reducer';
+import storeProductsReducer from './features/store-products-reducer';
 
 const rootReducer = combineReducers({
   location: currentLocationReducer,
+  products: storeProductsReducer,
 });
 
 /*

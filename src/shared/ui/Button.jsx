@@ -1,9 +1,8 @@
-import React from 'react';
 import classNames from 'classnames';
 
 const buttonColorMap = {
   primary: 'bg-primary text-text20',
-  secondary: 'bg-text10 text-text100',
+  secondary: 'bg-text10 text-text100 border-text100 border',
 };
 
 const buttonWeak = 'bg-text50 text-text20';
@@ -13,6 +12,7 @@ function Button({
   weak = false,
   disabled = false,
   children,
+  className,
   ...props
 }) {
   const buttonClasses = classNames(
@@ -21,6 +21,7 @@ function Button({
     {
       'opacity-30 cursor-not-allowed': disabled,
     },
+    className,
   );
 
   return (
@@ -29,25 +30,5 @@ function Button({
     </button>
   );
 }
-
-function ButtonGroup({ title, children }) {
-  return (
-    <div className='flex flex-col'>
-      {title && (
-        <>
-          <p className='text-base font-bold'>{title}</p>
-          <div className='h-2' />
-        </>
-      )}
-      <div className='flex flex-wrap gap-2'>
-        {React.Children.map(children, (child) =>
-          React.cloneElement(child, { className: 'flex-1' }),
-        )}
-      </div>
-    </div>
-  );
-}
-
-Button.Group = ButtonGroup;
 
 export default Button;
