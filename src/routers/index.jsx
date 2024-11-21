@@ -3,10 +3,11 @@ import { HiLocationMarker } from 'react-icons/hi';
 import LandingPage from '@pages/LandingPage';
 import LoginPage from '@pages/LoginPage';
 import MainPage from '@pages/MainPage';
-import DetailPage from '../pages/DetailPage';
-import MapPage from '../pages/MapPage';
-import SalesPage from '../pages/SalesPage';
-import ContractPage from '../pages/ContractPage';
+import DetailPage from '@pages/DetailPage';
+import MapPage from '@pages/MapPage';
+import SalesPage from '@pages/SalesPage';
+import ContractPage from '@pages/ContractPage';
+import CreditPage from '@pages/CreditPage';
 
 // 다른 페이지 컴포넌트들도 여기에 import...
 /* isHeader, isFooter는 default가 true이므로 생략가능합니다
@@ -77,6 +78,15 @@ const RoutesMap = [
     isFooter: false,
     leftIcon: true,
     content: <p className='text-xl'>정기 계약 요청서</p>,
+    rightIcon: true,
+  },
+  {
+    path: '/credit/:id',
+    element: <CreditPage />,
+    isHeader: true,
+    isFooter: false,
+    leftIcon: true,
+    content: <p className='text-xl'>주문/결제</p>,
     rightIcon: true,
   },
   {

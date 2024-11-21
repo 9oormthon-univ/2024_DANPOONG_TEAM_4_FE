@@ -10,10 +10,10 @@ import {
   increaseQuantity,
 } from '../../store/features/store-products-reducer';
 
-function ProductCard({ productId, name, unit, price, closeHandler }) {
+function ProductCard({ productId, count, name, unit, price, closeHandler }) {
   const dispatch = useDispatch();
 
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(count);
 
   const decrementQuantity = () => {
     if (quantity > 1) {

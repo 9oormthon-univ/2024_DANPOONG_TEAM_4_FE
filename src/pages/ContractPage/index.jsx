@@ -1,5 +1,6 @@
-import { useSelector } from 'react-redux';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import ProductList from '@components/contract/ProductList';
 import SelectedWeek from '@components/contract/SelectedWeek';
@@ -13,7 +14,11 @@ import Spacing from '@shared/ui/Spacing';
 import FloatingButton from '@shared/ui/FloatingButton';
 
 function ContractPage() {
+  const navigate = useNavigate();
+
   const { id, name, products } = useSelector((state) => state.products);
+
+  console.log(products);
 
   const [selectedWeek, setSelectedWeek] = useState('매주');
   const [selectedDate, setSelectedDate] = useState(['월']);
@@ -41,6 +46,7 @@ function ContractPage() {
       requestedTerm,
       isCheck,
     );
+    navigate(`/credit/${id}`);
   };
 
   return (
