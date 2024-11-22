@@ -32,8 +32,8 @@ function LandingPage() {
   }, [location.loaded, dispatch, navigate]);
 
   return (
-    <div className='flex h-screen flex-col items-center justify-center bg-primary transition-all duration-500'>
-      <img src='/src/assets/svgs/Logo.svg' alt='로고' className='size-28' />
+    <div className='flex flex-col items-center justify-center h-screen transition-all duration-500 bg-primary'>
+      <img src='Logo.svg' alt='로고' className='size-28' />
       <Spacing size={20} />
       <Section title='소확행' desc='소상공인과 확실한 동행' />
     </div>

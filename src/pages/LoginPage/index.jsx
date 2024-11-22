@@ -18,7 +18,7 @@ function LoginPage() {
         <Spacing size={50} />
         <button type='button' onClick={kakaoLoginHandler}>
           <img
-            src='/src/assets/images/kakao.png'
+            src='kakao.svg'
             alt='카카오 로그인'
             className='px-4 shadow-lg cursor-pointer'
           />
