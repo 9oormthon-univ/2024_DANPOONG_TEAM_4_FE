@@ -13,6 +13,7 @@ import CategoryPage from '@pages/ShopPage';
 import ShoplistPage from '@pages/ShopPage/ShoplistPage';
 import MyContractPage from '@pages/MyContractPage';
 import StoreDetailPage from '@pages/MyContractPage/StoreDetailPage';
+import AllowLoginPage from '../pages/LoginPage/AllowLoginPage';
 
 // 다른 페이지 컴포넌트들도 여기에 import...
 /* isHeader, isFooter는 default가 true이므로 생략가능합니다
@@ -49,6 +50,13 @@ const RoutesMap = [
   {
     path: '/login',
     element: <LoginPage />,
+    isHide: true,
+    isHeader: false,
+    isFooter: false,
+  },
+  {
+    path: '/oauth/callback/kakao',
+    element: <AllowLoginPage />,
     isHide: true,
     isHeader: false,
     isFooter: false,

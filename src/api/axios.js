@@ -2,7 +2,7 @@ import axios from 'axios';
 
 //토큰이 불필요한 경우
 export const publicApi = axios.create({
-  baseURL: `${import.meta.env.VITE_SERVER_BASE_URL}/public`,
+  baseURL: `${import.meta.env.VITE_SERVER_BASE_URL}`,
 });
 
 //토큰을 함께 보내는 instance
