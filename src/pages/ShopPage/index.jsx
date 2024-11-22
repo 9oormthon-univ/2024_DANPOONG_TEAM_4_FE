@@ -3,8 +3,8 @@ import { DUMMY_SHOPCATEGORY } from '@mocks/shopcategory';
 import CategoryCard from '../../components/category/CategoryCard';
 
 function CategoryPage() {
-  const navigate = useNavigate(); // navigate 생성
-
+  const navigate = useNavigate(); 
+  
   const handleCardClick = (category) => {
     navigate(`/category/shop/${category.id}`, { state: { name: category.name } }); // ID와 이름 전달
   };
