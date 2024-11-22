@@ -3,7 +3,11 @@ import { publicApi } from '@/api/axios';
 export const useLogin = () => {
   const signIn = async (code) => {
     try {
-      const response = await publicApi.post(`/kakao/token?code=${code}`);
+      const response = await publicApi.post(`/kakao/token`, null, {
+        params: {
+          code, // 쿼리 스트링으로 code 추가
+        },
+      });
 
       if (response.status === 200) {
         const { accessToken } = response.data;
