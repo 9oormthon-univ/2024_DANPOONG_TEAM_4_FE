@@ -44,7 +44,7 @@ function Layout() {
 
   return (
     <div className='flex items-center justify-center overflow-auto'>
-      <div className='w-full min-h-screen max-w-mobile'>
+      <div className='w-full min-h-screen max-w-mobile shadow-lg'>
         {isHeader && (
           <Header leftIcon={leftIcon} content={content} rightIcon={rightIcon} />
         )}
@@ -61,9 +61,12 @@ function Layout() {
         </motion.main>
 
         {isFooter && (
-          <footer className='fixed inset-x-0 bottom-0 h-20 z-footer max-w-mobile bg-text10'>
-            <Footer />
-          </footer>
+          <div class="relative">
+            {/* 이렇게 하니까 아예 바닥으로 고정되긴 한데.. 일단 나중에 다시 수정해볼게요  */}
+            <footer className='absolute inset-x-0 bottom-0 h-20 z-footer max-w-mobile bg-text10'>
+              <Footer />
+            </footer>
+          </div>
         )}
       </div>
     </div>
