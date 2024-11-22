@@ -8,6 +8,7 @@ import MapPage from '@pages/MapPage';
 import SalesPage from '@pages/SalesPage';
 import ContractPage from '@pages/ContractPage';
 import CreditPage from '@pages/CreditPage';
+import SuccessPage from '../pages/SuccessPage';
 
 // 다른 페이지 컴포넌트들도 여기에 import...
 /* isHeader, isFooter는 default가 true이므로 생략가능합니다
@@ -95,6 +96,11 @@ const RoutesMap = [
     ...mainPageDefaults,
     leftIcon: true,
     rightIcon: false,
+  },
+  {
+    path: '/success',
+    element: <SuccessPage />,
+    isHide: true,
   },
   // 다른 고객 관련 라우트들...
 ];

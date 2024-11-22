@@ -51,11 +51,11 @@ function DetailPage() {
         toggleHandler={toggleHandler}
       />
 
-      <section className='py-6 border-y'>
-        <Spacing size={15} />
-      </section>
+      <Spacing size={15} />
 
       <Description title='우리 상점은,'>{description}</Description>
+
+      <Spacing size={10} />
 
       <section className='flex items-center justify-between py-6 border-b'>
         <p>평점</p>
