@@ -31,7 +31,7 @@ function Footer() {
       {
         id: 'i4',
         icon: HiOutlineBuildingStorefront,
-        url: '/contract',
+        url: '/mycontract',
         name: '내 계약',
       },
       {
