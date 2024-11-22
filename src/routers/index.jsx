@@ -12,8 +12,7 @@ import SuccessPage from '../pages/SuccessPage';
 import CategoryPage from '@pages/ShopPage';
 import ShoplistPage from '@pages/ShopPage/ShoplistPage';
 import MyContractPage from '../pages/MyContractPage';
-import StoreDetailPage from '../pages/MyContractPage/StoreDetailPage';
-
+// import StoreDetailPage from '../pages/MyContractPage/StoreDetailPage';
 
 // 다른 페이지 컴포넌트들도 여기에 import...
 /* isHeader, isFooter는 default가 true이므로 생략가능합니다
@@ -99,6 +98,7 @@ const RoutesMap = [
     path: '/map',
     element: <MapPage />,
     ...mainPageDefaults,
+    isFooter: false,
     leftIcon: true,
     rightIcon: false,
   },
@@ -118,14 +118,15 @@ const RoutesMap = [
     isFooter: false,
     leftIcon: true,
     content: (location) => (
-      <p className="text-xl">
-        {location.state?.name || '카테고리'} {/* 상태에서 전달된 카테고리 이름 표시 */}
+      <p className='text-xl'>
+        {location.state?.name || '카테고리'}{' '}
+        {/* 상태에서 전달된 카테고리 이름 표시 */}
       </p>
     ),
     rightIcon: true,
   },
   {
-    path: '/contract',
+    path: '/myContract',
     element: <MyContractPage />,
     isHeader: true,
     isFooter: true,
@@ -133,15 +134,15 @@ const RoutesMap = [
     content: <p className='text-xl'>내 계약</p>,
     rightIcon: true,
   },
-  {
-    path: '/contract/1',
-    element: <StoreDetailPage />,
-    isHeader: true,
-    isFooter: true,
-    leftIcon: true,
-    content: <p className='text-xl'>내 계약</p>,
-    rightIcon: true,
-  },
+  // {
+  //   path: '/contract/1',
+  //   element: <StoreDetailPage />,
+  //   isHeader: true,
+  //   isFooter: true,
+  //   leftIcon: true,
+  //   content: <p className='text-xl'>내 계약</p>,
+  //   rightIcon: true,
+  // },
   {
     path: '/success',
     element: <SuccessPage />,

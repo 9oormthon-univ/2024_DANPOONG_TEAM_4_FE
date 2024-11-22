@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { matchPath, Outlet, useLocation } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
@@ -8,7 +10,6 @@ import RoutesMap from '@routers';
 
 import Header from './Header';
 import Footer from './Footer';
-import { useEffect } from 'react';
 import useAddressLocation from '../hooks/use-address-location';
 
 function Layout() {
@@ -44,7 +45,7 @@ function Layout() {
 
   return (
     <div className='flex items-center justify-center overflow-auto'>
-      <div className='w-full min-h-screen max-w-mobile shadow-lg'>
+      <div className='w-full min-h-screen shadow-lg max-w-mobile'>
         {isHeader && (
           <Header leftIcon={leftIcon} content={content} rightIcon={rightIcon} />
         )}
@@ -60,14 +61,13 @@ function Layout() {
           <Outlet />
         </motion.main>
 
+        {/* 이렇게 하니까 아예 바닥으로 고정되긴 한데.. 일단 나중에 다시 수정해볼게요  */}
         {isFooter && (
-          <div class="relative">
-            {/* 이렇게 하니까 아예 바닥으로 고정되긴 한데.. 일단 나중에 다시 수정해볼게요  */}
-            <footer className='absolute inset-x-0 bottom-0 h-20 z-footer max-w-mobile bg-text10'>
-              <Footer />
-            </footer>
-          </div>
+          <footer className='fixed inset-x-0 bottom-0 h-20 z-footer max-w-mobile bg-text10'>
+            <Footer />
+          </footer>
         )}
+        {/* } */}
       </div>
     </div>
   );
