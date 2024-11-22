@@ -7,6 +7,7 @@ import TitleRow from '@shared/ui/TitleRow';
 import Spacing from '@shared/ui/Spacing';
 
 function MainPage() {
+
   return (
     <div>
       <Banners />
@@ -17,13 +18,13 @@ function MainPage() {
       </section>
 
       <section className='my-4'>
-        <TitleRow title='정기 계약 현황' sub='전체보기' />
+        <TitleRow title='정기 계약 현황' sub='전체보기' navigateTo='/mycontract'/>
         <Spacing size={6} />
         <Contracts />
       </section>
 
       <section>
-        <TitleRow title='내 주변 소상공인 상점' sub='전체보기' />
+        <TitleRow title='내 주변 소상공인 상점' sub='전체보기' navigateTo='/category'/>
         <Spacing size={6} />
         <Stores />
       </section>
