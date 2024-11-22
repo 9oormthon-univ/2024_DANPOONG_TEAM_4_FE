@@ -1,11 +1,23 @@
+import { useState, useEffect } from 'react';
+
 import Spacing from '@shared/ui/Spacing';
 import Section from '@shared/ui/Section';
 
-const KAKAO_LOGIN_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${import.meta.env.VITE_KAKAO_APP_KEY}&redirect_uri=${import.meta.env.VITE_KAKAO_REDIRECT_URL}`;
 function LoginPage() {
-  // TODO: 임시 main으로 라우팅 -> 추후 로그인 로직 후 수정 예정
+  const [kakaoLoginUrl, setKakaoLoginUrl] = useState('');
+
+  useEffect(() => {
+    const baseUrl = window.location.origin;
+    const url = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${import.meta.env.VITE_KAKAO_APP_KEY}&redirect_uri=${baseUrl}/oauth/callback/kakao`;
+    setKakaoLoginUrl(url);
+  }, []); // 브라우저 환경에서만 실행
+
   const kakaoLoginHandler = () => {
-    window.location.href = KAKAO_LOGIN_URL;
+    if (kakaoLoginUrl) {
+      window.location.href = kakaoLoginUrl;
+    } else {
+      console.error('Kakao Login URL이 초기화되지 않았습니다.');
+    }
   };
 
   return (
