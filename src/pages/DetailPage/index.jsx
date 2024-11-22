@@ -26,11 +26,11 @@ function DetailPage() {
 
   const { favorites, toggleHandler, isLoading } = useFavoriteStore();
 
-  const { id, description, star, location, products } =
+  const { id, name, description, star, location, products } =
     DUMMY_STORE[0].data.store;
 
   const handleNavigateToSales = () => {
-    dispatch(addProducts(products));
+    dispatch(addProducts({ id, name, products }));
     navigate(`/detail/${id}/sales`);
   };
 
@@ -53,7 +53,9 @@ function DetailPage() {
 
       <Spacing size={15} />
 
-      <Description description={description} />
+      <Description title='우리 상점은,'>{description}</Description>
+
+      <Spacing size={10} />
 
       <section className='flex items-center justify-between py-6 border-b'>
         <p>평점</p>

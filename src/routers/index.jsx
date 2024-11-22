@@ -3,13 +3,17 @@ import { HiLocationMarker } from 'react-icons/hi';
 import LandingPage from '@pages/LandingPage';
 import LoginPage from '@pages/LoginPage';
 import MainPage from '@pages/MainPage';
-import DetailPage from '../pages/DetailPage';
-import MapPage from '../pages/MapPage';
-import SalesPage from '../pages/SalesPage';
+import DetailPage from '@pages/DetailPage';
+import MapPage from '@pages/MapPage';
+import SalesPage from '@pages/SalesPage';
+import ContractPage from '@pages/ContractPage';
+import CreditPage from '@pages/CreditPage';
+import SuccessPage from '../pages/SuccessPage';
 import CategoryPage from '@pages/ShopPage';
 import ShoplistPage from '@pages/ShopPage/ShoplistPage';
 import MyContractPage from '../pages/MyContractPage';
 import StoreDetailPage from '../pages/MyContractPage/StoreDetailPage';
+
 
 // 다른 페이지 컴포넌트들도 여기에 import...
 /* isHeader, isFooter는 default가 true이므로 생략가능합니다
@@ -74,6 +78,24 @@ const RoutesMap = [
     rightIcon: true,
   },
   {
+    path: '/contract/:id',
+    element: <ContractPage />,
+    isHeader: true,
+    isFooter: false,
+    leftIcon: true,
+    content: <p className='text-xl'>정기 계약 요청서</p>,
+    rightIcon: true,
+  },
+  {
+    path: '/credit/:id',
+    element: <CreditPage />,
+    isHeader: true,
+    isFooter: false,
+    leftIcon: true,
+    content: <p className='text-xl'>주문/결제</p>,
+    rightIcon: true,
+  },
+  {
     path: '/map',
     element: <MapPage />,
     ...mainPageDefaults,
@@ -119,6 +141,11 @@ const RoutesMap = [
     leftIcon: true,
     content: <p className='text-xl'>내 계약</p>,
     rightIcon: true,
+  },
+  {
+    path: '/success',
+    element: <SuccessPage />,
+    isHide: true,
   },
   // 다른 고객 관련 라우트들...
 ];

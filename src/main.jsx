@@ -7,10 +7,13 @@ import App from './App.jsx';
 
 import { ReduxProvider } from '@app/ReduxProvider.jsx';
 
+import ToastProvider from '@shared/toastify/ToastProvider.jsx';
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <ReduxProvider>
+        <ToastProvider />
         <App />
       </ReduxProvider>
     </BrowserRouter>
