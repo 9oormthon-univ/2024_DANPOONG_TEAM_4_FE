@@ -12,7 +12,7 @@ import SuccessPage from '../pages/SuccessPage';
 import CategoryPage from '@pages/ShopPage';
 import ShoplistPage from '@pages/ShopPage/ShoplistPage';
 import MyContractPage from '../pages/MyContractPage';
-// import StoreDetailPage from '../pages/MyContractPage/StoreDetailPage';
+import StoreDetailPage from '../pages/MyContractPage/StoreDetailPage';
 
 // 다른 페이지 컴포넌트들도 여기에 import...
 /* isHeader, isFooter는 default가 true이므로 생략가능합니다
@@ -134,15 +134,15 @@ const RoutesMap = [
     content: <p className='text-xl'>내 계약</p>,
     rightIcon: true,
   },
-  // {
-  //   path: '/contract/1',
-  //   element: <StoreDetailPage />,
-  //   isHeader: true,
-  //   isFooter: true,
-  //   leftIcon: true,
-  //   content: <p className='text-xl'>내 계약</p>,
-  //   rightIcon: true,
-  // },
+  {
+    path: '/mycontract/:id',
+    element: <StoreDetailPage />,
+    isHeader: true,
+    isFooter: true,
+    leftIcon: true,
+    content: <p className='text-xl'>내 계약</p>,
+    rightIcon: true,
+  },
   {
     path: '/success',
     element: <SuccessPage />,

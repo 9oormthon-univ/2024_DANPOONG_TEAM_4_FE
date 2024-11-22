@@ -10,7 +10,7 @@ function MyContractPage() {
         <div
           key={store.id}
           className='cursor-pointer'
-          onClick={() => navigate(`/contract/${store.id}`)}
+          onClick={() => navigate(`/mycontract/${store.id}`, { state: store })}
         >
           <Card
             key={store.id}
