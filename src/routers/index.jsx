@@ -120,19 +120,26 @@ const RoutesMap = [
     content: <p className='text-xl'>내 주변 소상공인 상점</p>,
     rightIcon: true,
   },
+  // {
+  //   path: '/category/shop/:id',
+  //   element: <ShoplistPage />,
+  //   isHeader: true,
+  //   isFooter: false,
+  //   leftIcon: true,
+  //   content: (location) => (
+  //     <p className='text-xl'>
+  //       {location.state?.name || '카테고리'}{' '}
+  //       {/* 상태에서 전달된 카테고리 이름 표시 */}
+  //     </p>
+  //   ),
+  //   rightIcon: true,
+  // },
   {
     path: '/category/shop/:id',
     element: <ShoplistPage />,
-    isHeader: true,
+    isHide: true,
+    isHeader: false,
     isFooter: false,
-    leftIcon: true,
-    content: (location) => (
-      <p className='text-xl'>
-        {location.state?.name || '카테고리'}{' '}
-        {/* 상태에서 전달된 카테고리 이름 표시 */}
-      </p>
-    ),
-    rightIcon: true,
   },
   {
     path: '/myContract',
