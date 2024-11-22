@@ -1,7 +1,11 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
+// import { useQuery } from '@tanstack/react-query';
+
 import { MdKeyboardArrowRight } from 'react-icons/md';
+
+// import { privateApi } from '@/api/axios';
 
 import { DUMMY_STORE } from '@mocks/store';
 
@@ -21,6 +25,14 @@ import FloatingButton from '@shared/ui/FloatingButton';
 import { addProducts } from '@/store/features/store-products-reducer';
 
 function DetailPage() {
+  // const storeId = useParams().id;
+
+  // const { data } = useQuery({
+  //   queryKey: ["store", storeId],
+  //   queryFn: () =>
+  //     privateApi.get(`/challenge/detail/${challengeId}`).then((res) => res.data),
+  // });
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
