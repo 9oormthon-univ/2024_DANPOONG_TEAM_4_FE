@@ -28,9 +28,9 @@ function MainPage() {
 
       <section>
         <TitleRow
-          title='내 주변 소상공인 상점'
+          title='내 업체를 위한 추천 상점'
           sub='전체보기'
-          navigateTo='/category'
+          navigateTo='/recommended'
         />
         <Spacing size={6} />
         <Stores />
