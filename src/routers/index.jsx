@@ -18,6 +18,7 @@ import AllowLoginPage from '@pages/LoginPage/AllowLoginPage';
 import FavoritePage from '@pages/FavoritePage';
 import AlertPage from '@pages/AlertPage';
 import RecommendedStorePage from '@pages/RecommendedPage';
+import SelectCategory from '../pages/LoginPage/SelectCategory';
 
 // 다른 페이지 컴포넌트들도 여기에 import...
 /* isHeader, isFooter는 default가 true이므로 생략가능합니다
@@ -61,6 +62,13 @@ const RoutesMap = [
   {
     path: '/oauth/callback/kakao',
     element: <AllowLoginPage />,
+    isHide: true,
+    isHeader: false,
+    isFooter: false,
+  },
+  {
+    path: '/select-category',
+    element: <SelectCategory />,
     isHide: true,
     isHeader: false,
     isFooter: false,
