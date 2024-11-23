@@ -17,22 +17,22 @@ const storeProductsReducer = createSlice({
       // products 배열에 quantity 기본값 추가
       state.products = action.payload.products.map((product) => ({
         ...product,
-        originalPrice: product.price, // 원래 가격을 저장
+        originalPrice: product.product_price, // 원래 가격을 저장
         quantity: 1, // 기본 수량 설정
       }));
     },
     removeProduct: (state, action) => {
       state.products = state.products.filter(
-        (product) => product.productId !== action.payload,
+        (product) => product.product_id !== action.payload,
       );
     },
     increaseQuantity: (state, action) => {
       const product = state.products.find(
-        (product) => product.productId === action.payload,
+        (product) => product.product_id === action.payload,
       );
       if (product) {
         product.quantity += 1;
-        product.price = product.originalPrice * product.quantity; // 가격 업데이트
+        product.product_price = product.originalPrice * product.quantity; // 가격 업데이트
       }
     },
     decreaseQuantity: (state, action) => {
@@ -41,7 +41,7 @@ const storeProductsReducer = createSlice({
       );
       if (product && product.quantity > 1) {
         product.quantity -= 1;
-        product.price = product.originalPrice * product.quantity; // 가격 업데이트
+        product.product_price = product.originalPrice * product.quantity; // 가격 업데이트
       }
     },
   },

@@ -13,7 +13,6 @@ function SalesPage() {
   const dispatch = useDispatch();
 
   const { id, products } = useSelector((state) => state.products);
-  console.log(products);
 
   const removeHandler = (productId) => {
     dispatch(removeProduct(productId));
@@ -31,29 +30,34 @@ function SalesPage() {
     return (
       <div>
         {products.map((product) => {
-          const { productId, name, price, quantity } = product;
-          const [title, unit] = name.split(' ');
+          console.log(product);
+
+          const {
+            product_id,
+            imageUrl,
+            product_name,
+            unit,
+            product_price,
+            quantity,
+          } = product;
 
           return (
-            <div className='py-6 border-b' key={productId}>
+            <div className='py-6 border-b' key={product_name}>
               <ProductCard
-                productId={productId}
+                productId={product_id}
                 count={quantity}
-                name={title}
+                name={product_name}
                 unit={unit}
-                price={price}
-                closeHandler={() => removeHandler(productId)}
+                price={product_price}
+                closeHandler={() => removeHandler(product_id)}
+                imageSrc={imageUrl}
               />
             </div>
           );
         })}
         <Spacing size={20} />
         <div className='flex flex-wrap gap-6'>
-          <Button 
-            color='secondary' 
-            className='flex-1' 
-            onClick={goCartHandler}
-          >
+          <Button color='secondary' className='flex-1' onClick={goCartHandler}>
             장바구니
           </Button>
           <Button

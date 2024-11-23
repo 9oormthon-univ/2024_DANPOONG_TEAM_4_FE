@@ -1,27 +1,47 @@
+import { useQuery } from '@tanstack/react-query';
+
+import { privateApi } from '@/api/axios';
+
 import { useNavigate } from 'react-router-dom';
-import { DUMMY_STORES } from '../../mocks/stores';
 
 import Card from '@shared/ui/Card';
 
 function RecommendedStorePage() {
-    const navigate = useNavigate();
-  return (
-    <div className="grid grid-cols-2 gap-4 p-4">
-    {DUMMY_STORES.map((store) => (
-        <div
-        key={store.id}
-        className='cursor-pointer'
-        onClick={() => navigate(`/detail/${store.id}`, { state: store })}
-        >
-        <Card
-            key={store.id}
-            storeName={store.name}
-            category={store.category}
-        />
-        </div>
-    ))}
-    </div>
-  )
+  const categoryName =
+    localStorage.getItem('category') || 'AGRICULTURAL_PRODUCTS';
+
+  const { data: storeData } = useQuery({
+    queryKey: ['enterprises', categoryName],
+    queryFn: () =>
+      privateApi
+        .get(`/enterprises/category/${categoryName}?size=10&limit=0`)
+        .then((response) => response.data.data.content),
+  });
+  const navigate = useNavigate();
+
+  if (storeData) {
+    return (
+      <div className='grid grid-cols-2 gap-4 p-4'>
+        {storeData.map((store) => (
+          <div
+            key={store.enterprise_id}
+            className='cursor-pointer'
+            onClick={() =>
+              navigate(`/detail/${store.enterprise_id}`, { state: store })
+            }
+          >
+            <Card
+              imageSrc={store.enterprise_image_url}
+              key={store.enterprise_id}
+              storeName={store.enterprise_name}
+              category={store.category}
+            />
+          </div>
+        ))}
+      </div>
+    );
+  }
+  return <p>없어용</p>;
 }
 
 export default RecommendedStorePage;

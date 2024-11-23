@@ -10,7 +10,15 @@ import {
   increaseQuantity,
 } from '../../store/features/store-products-reducer';
 
-function ProductCard({ productId, count, name, unit, price, closeHandler }) {
+function ProductCard({
+  productId,
+  count,
+  name,
+  unit,
+  price,
+  closeHandler,
+  imageSrc,
+}) {
   const dispatch = useDispatch();
 
   const [quantity, setQuantity] = useState(count);
@@ -32,7 +40,7 @@ function ProductCard({ productId, count, name, unit, price, closeHandler }) {
   return (
     <section className='grid grid-cols-3'>
       <div className='col-span-1 mr-6'>
-        <LazyImage />
+        <LazyImage imageSrc={imageSrc + '.jpg'} />
       </div>
 
       <div className='col-span-2'>

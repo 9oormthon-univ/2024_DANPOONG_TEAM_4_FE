@@ -1,21 +1,32 @@
+import { useQuery } from '@tanstack/react-query';
+
+import { privateApi } from '@/api/axios';
+
 import { useNavigate } from 'react-router-dom';
-import { DUMMY_MYCONTRACTS } from '../../mocks/mycotracts';
+
 import Card from '@shared/ui/Card';
 
 function MyContractPage() {
+  const { data: contractData } = useQuery({
+    queryKey: ['myContracts'],
+    queryFn: () =>
+      privateApi
+        .get('/contracts?page=0&limit=10')
+        .then((response) => response.data.data.content),
+  });
   const navigate = useNavigate();
   return (
     <div className='grid grid-cols-2 gap-4 p-4'>
-      {DUMMY_MYCONTRACTS.map((store) => (
+      {contractData.map((contract, index) => (
         <div
-          key={store.id}
+          key={index}
           className='cursor-pointer'
-          onClick={() => navigate(`/mycontract/${store.id}`, { state: store })}
+          onClick={() => navigate(`/mycontract/${contract.contractId}`)}
         >
           <Card
-            key={store.id}
-            storeName={store.name}
-            category={store.category}
+            imageSrc={contract.profileImage}
+            storeName={contract.enterpriseName}
+            category={contract.category}
           />
         </div>
       ))}

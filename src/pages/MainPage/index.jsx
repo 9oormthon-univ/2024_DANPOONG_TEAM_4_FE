@@ -1,3 +1,7 @@
+import { useQuery } from '@tanstack/react-query';
+
+import { privateApi } from '@/api/axios';
+
 import Banners from '@components/main/Banners';
 import Alerts from '@components/main/Alerts';
 import Contracts from '@components/main/Contracts';
@@ -7,6 +11,25 @@ import TitleRow from '@shared/ui/TitleRow';
 import Spacing from '@shared/ui/Spacing';
 
 function MainPage() {
+  const categoryName =
+    localStorage.getItem('category') || 'AGRICULTURAL_PRODUCTS';
+
+  const { data: contractData } = useQuery({
+    queryKey: ['myContracts'],
+    queryFn: () =>
+      privateApi
+        .get('/contracts?page=0&limit=10')
+        .then((response) => response.data.data.content),
+  });
+
+  const { data: storeData } = useQuery({
+    queryKey: ['enterprises', categoryName],
+    queryFn: () =>
+      privateApi
+        .get(`/enterprises/category/${categoryName}?size=10&limit=0`)
+        .then((response) => response.data.data.content),
+  });
+
   return (
     <div>
       <Banners />
@@ -23,7 +46,7 @@ function MainPage() {
           navigateTo='/mycontract'
         />
         <Spacing size={6} />
-        <Contracts />
+        {contractData && <Contracts data={contractData} />}
       </section>
 
       <section>
@@ -33,7 +56,7 @@ function MainPage() {
           navigateTo='/recommended'
         />
         <Spacing size={6} />
-        <Stores />
+        <Stores data={storeData} />
       </section>
     </div>
   );

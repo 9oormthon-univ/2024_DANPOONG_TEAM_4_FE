@@ -70,14 +70,14 @@ function SelectCategory() {
       {DUMMY_SHOPCATEGORY.map((category) => (
         <div
           key={category.id}
-          onClick={() => setSelectedCategory(category.name)}
+          onClick={() => setSelectedCategory(category.categoryName)}
         >
           <CategoryCard
             storeName={category.name}
             imageSrc={category.image}
             borderColor={category.bordercolor}
             bgColor={category.bgcolor}
-            selected={selectedCategory === category.name}
+            selected={selectedCategory === category.categoryName}
           />
           <FloatingButton
             label='선택하기'

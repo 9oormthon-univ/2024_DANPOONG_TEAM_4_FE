@@ -4,9 +4,6 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 function LazyImage({ imageSrc = null, height = '98px' }) {
-  // 임시용 콘솔
-  console.log(imageSrc);
-
   return (
     <LazyLoadImage
       src={imageSrc || faker.image.urlLoremFlickr({ category: 'store' })}

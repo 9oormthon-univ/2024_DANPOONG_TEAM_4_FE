@@ -1,8 +1,22 @@
 import TagButton from '@shared/ui/TagButton';
 
-const WEEKS = ['매주', '2주마다', '3주마다', '4주마다'];
+// const WEEKS = ['매주', '2주마다', '3주마다', '4주마다'];
+const WEEKS = [
+  { name: '매주', value: 1 },
+  { name: '2주마다', value: 2 },
+  { name: '3주마다', value: 3 },
+  { name: '4주마다', value: 4 },
+];
 
-const DAYS = ['월', '화', '수', '목', '금', '토', '일'];
+const DAYS = [
+  { name: '월', value: 'MONDAY' },
+  { name: '화', value: 'TUESDAY' },
+  { name: '수', value: 'WEDNESDAY' },
+  { name: '목', value: 'THURSDAY' },
+  { name: '금', value: 'FRIDAY' },
+  { name: '토', value: 'SATURDAY' },
+  { name: '일', value: 'SUNDAY' },
+];
 
 function SelectedWeek({
   selectedWeek,
@@ -31,9 +45,9 @@ function SelectedWeek({
         {WEEKS.map((week, index) => (
           <TagButton
             key={index}
-            label={week}
-            selected={selectedWeek === week}
-            onClick={() => onSelectWeek(week)}
+            label={week.name}
+            selected={selectedWeek === week.value}
+            onClick={() => onSelectWeek(week.value)}
           />
         ))}
       </div>
@@ -42,9 +56,9 @@ function SelectedWeek({
         {DAYS.map((day, index) => (
           <TagButton
             key={index}
-            label={day}
-            selected={selectedDate.includes(day)}
-            onClick={() => toggleDaySelection(day)}
+            label={day.name}
+            selected={selectedDate.includes(day.value)}
+            onClick={() => toggleDaySelection(day.value)}
           />
         ))}
       </div>

@@ -1,7 +1,7 @@
 import HeartButton from '@shared/ui/HeartButton';
 
-function Header({ store, favorites, toggleHandler }) {
-  const { id, name, category } = store;
+function Header({ id, name, category, favorites, toggleHandler }) {
+  // const { id, name, category } = store;
 
   return (
     <section className='flex items-center justify-between'>
@@ -9,7 +9,7 @@ function Header({ store, favorites, toggleHandler }) {
       <span className='flex items-center gap-x-6'>
         <p className='text-text100'>{category}</p>
         <HeartButton
-          store={store}
+          // store={store}
           isFavorite={favorites.some((fav) => fav.id === id)}
           onFavorite={toggleHandler}
         />

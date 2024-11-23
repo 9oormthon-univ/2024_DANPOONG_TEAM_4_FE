@@ -1,13 +1,11 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-// import { useQuery } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
-// import { privateApi } from '@/api/axios';
-
-import { DUMMY_STORE } from '@mocks/store';
+import { privateApi } from '@/api/axios';
 
 import { useFavoriteStore } from '@hooks/use-favorite-store';
 
@@ -23,42 +21,76 @@ import Tag from '@shared/ui/Tag';
 import FloatingButton from '@shared/ui/FloatingButton';
 
 import { addProducts } from '@/store/features/store-products-reducer';
-
 function DetailPage() {
-  // const storeId = useParams().id;
+  const storeId = useParams().id;
 
-  // const { data } = useQuery({
-  //   queryKey: ["store", storeId],
-  //   queryFn: () =>
-  //     privateApi.get(`/challenge/detail/${challengeId}`).then((res) => res.data),
-  // });
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ['enterprises', storeId],
+    queryFn: () =>
+      privateApi
+        .get(`/enterprises/${storeId}`)
+        .then((response) => response.data.data),
+    retry: 2, // 실패 시 최대 2번 재시도
+  });
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { favorites, toggleHandler, isLoading } = useFavoriteStore();
+  const { favorites, toggleHandler } = useFavoriteStore();
 
-  const { id, name, description, star, location, products } =
-    DUMMY_STORE[0].data.store;
+  // 로딩 상태 처리
+  if (isLoading) {
+    return <p className='text-center'>Loading...</p>; // 더 나은 로딩 UI를 추가 가능
+  }
+
+  // 에러 상태 처리
+  if (isError) {
+    return (
+      <p className='text-center'>
+        데이터를 불러오지 못했습니다. 다시 시도해주세요.
+      </p>
+    );
+  }
+
+  // 데이터가 없는 경우 처리
+  if (!data) {
+    return <p className='text-center'>상점 정보를 찾을 수 없습니다.</p>;
+  }
+
+  // 구조 분해는 데이터가 존재할 때만 수행
+  const {
+    enterprise_id,
+    enterprise_name,
+    enterprise_image_url,
+    category,
+    description,
+    star,
+    latitude,
+    longitude,
+    products,
+  } = data;
 
   const handleNavigateToSales = () => {
-    dispatch(addProducts({ id, name, products }));
-    navigate(`/detail/${id}/sales`);
+    dispatch(
+      addProducts({
+        id: enterprise_id,
+        name: enterprise_name,
+        products: products,
+      }),
+    );
+    navigate(`/detail/${enterprise_id}/sales`);
   };
-
-  if (isLoading) {
-    // 추후 Loader로 변경 예정
-    return <p>Loading...</p>;
-  }
 
   return (
     <div className='w-full'>
-      <LazyImage height='230px' />
+      <LazyImage imageSrc={enterprise_image_url + '.jpg'} height='230px' />
 
       <Spacing size={20} />
 
       <Header
-        store={DUMMY_STORE[0].data.store}
+        id={enterprise_id}
+        name={enterprise_name}
+        category={category}
         favorites={favorites}
         toggleHandler={toggleHandler}
       />
@@ -75,7 +107,7 @@ function DetailPage() {
       </section>
 
       <section className='py-4 border-b'>
-        <MapSection lat={location.latitude} lng={location.longitude} />
+        <MapSection lat={latitude} lng={longitude} />
       </section>
 
       <>
