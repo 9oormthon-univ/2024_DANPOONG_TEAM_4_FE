@@ -15,6 +15,8 @@ import MyContractPage from '@pages/MyContractPage';
 import StoreDetailPage from '@pages/MyContractPage/StoreDetailPage';
 import GetAccessPage from '@pages/LoginPage/GetAccessPage';
 import CartPage from '../pages/CartPage';
+import AllowLoginPage from '../pages/LoginPage/AllowLoginPage';
+
 
 // 다른 페이지 컴포넌트들도 여기에 import...
 /* isHeader, isFooter는 default가 true이므로 생략가능합니다
@@ -57,12 +59,11 @@ const RoutesMap = [
   },
   {
     path: '/oauth/callback/kakao',
-    element: <GetAccessPage />,
+    element: <AllowLoginPage />,
     isHide: true,
     isHeader: false,
     isFooter: false,
   },
-
   {
     path: '/main',
     element: <MainPage />,
@@ -121,20 +122,6 @@ const RoutesMap = [
     content: <p className='text-xl'>내 주변 소상공인 상점</p>,
     rightIcon: true,
   },
-  // {
-  //   path: '/category/shop/:id',
-  //   element: <ShoplistPage />,
-  //   isHeader: true,
-  //   isFooter: false,
-  //   leftIcon: true,
-  //   content: (location) => (
-  //     <p className='text-xl'>
-  //       {location.state?.name || '카테고리'}{' '}
-  //       {/* 상태에서 전달된 카테고리 이름 표시 */}
-  //     </p>
-  //   ),
-  //   rightIcon: true,
-  // },
   {
     path: '/category/shop/:id',
     element: <ShoplistPage />,
