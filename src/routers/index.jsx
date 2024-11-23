@@ -15,6 +15,7 @@ import MyContractPage from '@pages/MyContractPage';
 import StoreDetailPage from '@pages/MyContractPage/StoreDetailPage';
 import CartPage from '../pages/CartPage';
 import AllowLoginPage from '../pages/LoginPage/AllowLoginPage';
+import FavoritePage from '../pages/FavoritePage';
 
 // 다른 페이지 컴포넌트들도 여기에 import...
 /* isHeader, isFooter는 default가 true이므로 생략가능합니다
@@ -149,6 +150,15 @@ const RoutesMap = [
     path: '/success',
     element: <SuccessPage />,
     isHide: true,
+  },
+  {
+    path: '/favorites',
+    element: <FavoritePage />,
+    isHeader: true,
+    isFooter: true,
+    leftIcon: true,
+    content: <p className='text-xl'>찜 목록</p>,
+    rightIcon: true,
   },
   {
     path: '/cart/:id',
