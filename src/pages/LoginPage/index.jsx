@@ -8,7 +8,7 @@ function LoginPage() {
 
   useEffect(() => {
     const baseUrl = window.location.origin;
-    const url = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${import.meta.env.VITE_KAKAO_APP_KEY}&redirect_uri=${baseUrl}/oauth/callback/kakao`;
+    const url = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${import.meta.env.VITE_KAKAO_REST_API_KEY}&redirect_uri=${baseUrl}/oauth/callback/kakao`;
     setKakaoLoginUrl(url);
   }, []); // 브라우저 환경에서만 실행
 

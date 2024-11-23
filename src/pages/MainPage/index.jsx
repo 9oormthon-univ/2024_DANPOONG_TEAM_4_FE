@@ -11,7 +11,7 @@ function MainPage() {
     <div>
       <Banners />
       <section>
-        <TitleRow title='알림 확인' sub='전체보기' />
+        <TitleRow title='알림 확인' sub='전체보기' navigateTo='/alert' />
         <Spacing size={6} />
         <Alerts />
       </section>
