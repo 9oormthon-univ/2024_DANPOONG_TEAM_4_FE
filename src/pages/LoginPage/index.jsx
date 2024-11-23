@@ -1,23 +1,11 @@
-import { useState, useEffect } from 'react';
+import { KAKAO_AUTH_URL } from '@app/firebase/config/KakaoConfig';
 
 import Spacing from '@shared/ui/Spacing';
 import Section from '@shared/ui/Section';
 
 function LoginPage() {
-  const [kakaoLoginUrl, setKakaoLoginUrl] = useState('');
-
-  useEffect(() => {
-    const baseUrl = window.location.origin;
-    const url = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${import.meta.env.VITE_KAKAO_REST_API_KEY}&redirect_uri=${baseUrl}/oauth/callback/kakao`;
-    setKakaoLoginUrl(url);
-  }, []); // 브라우저 환경에서만 실행
-
   const kakaoLoginHandler = () => {
-    if (kakaoLoginUrl) {
-      window.location.href = kakaoLoginUrl;
-    } else {
-      console.error('Kakao Login URL이 초기화되지 않았습니다.');
-    }
+    window.location.href = KAKAO_AUTH_URL;
   };
 
   return (
