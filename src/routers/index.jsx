@@ -16,6 +16,7 @@ import StoreDetailPage from '@pages/MyContractPage/StoreDetailPage';
 import CartPage from '../pages/CartPage';
 import AllowLoginPage from '../pages/LoginPage/AllowLoginPage';
 import FavoritePage from '../pages/FavoritePage';
+import AlertPage from '../pages/AlertPage';
 
 // 다른 페이지 컴포넌트들도 여기에 import...
 /* isHeader, isFooter는 default가 true이므로 생략가능합니다
@@ -67,6 +68,15 @@ const RoutesMap = [
     path: '/main',
     element: <MainPage />,
     ...mainPageDefaults,
+  },
+  {
+    path: '/alert',
+    element: <AlertPage />,
+    isHeader: true,
+    isFooter: true,
+    leftIcon: true,
+    content: <p className='text-xl'>알림 확인</p>,
+    rightIcon: true,
   },
   {
     path: '/detail/:id',

@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 function TitleRow({ title, sub, navigateTo }) {
   const navigate = useNavigate();
@@ -6,7 +6,12 @@ function TitleRow({ title, sub, navigateTo }) {
   return (
     <div className='flex items-center justify-between px-2'>
       <p className='text-xl text-text300'>{title}</p>
-      <p className='text-primary cursor-pointer' onClick={() => navigate(navigateTo)}>{sub}</p>
+      <p
+        className='cursor-pointer text-primary'
+        onClick={() => navigate(navigateTo)}
+      >
+        {sub}
+      </p>
     </div>
   );
 }
