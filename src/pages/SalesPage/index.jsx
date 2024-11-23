@@ -19,6 +19,10 @@ function SalesPage() {
     dispatch(removeProduct(productId));
   };
 
+  const goCartHandler = () => {
+    navigate(`/cart/${id}`, { state: { products } }); // 장바구니로 상품 정보를 전달
+  };
+
   const goContractHandler = () => {
     navigate(`/contract/${id}`);
   };
@@ -45,7 +49,11 @@ function SalesPage() {
         })}
         <Spacing size={20} />
         <div className='flex flex-wrap gap-6'>
-          <Button color='secondary' className='flex-1'>
+          <Button 
+            color='secondary' 
+            className='flex-1' 
+            onClick={goCartHandler}
+          >
             장바구니
           </Button>
           <Button
