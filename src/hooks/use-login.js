@@ -56,8 +56,15 @@ export const useLogin = () => {
       // Step 3: 서버와 데이터 주고받기
       await sendUserDataToServer(userData);
 
-      // Step 4: 로그인 성공 후 페이지 이동
-      navigate('/main');
+      // Step 4: localStorage 검사 후 페이지 이동
+      const category = localStorage.getItem('category');
+      if (!category) {
+        // category가 설정되어 있지 않다면
+        navigate('/select-category'); // 선택 페이지로 이동
+      } else {
+        // category가 설정되어 있다면
+        navigate('/main'); // 메인 페이지로 이동
+      }
     } catch (error) {
       console.error('토큰 요청 또는 인증 실패:', error);
       alert('로그인에 실패했습니다. 다시 시도해주세요.');
