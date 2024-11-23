@@ -8,6 +8,7 @@ import 'swiper/css/navigation';
 import '@shared/ui/swiper-style.css';
 
 import Card from '@shared/ui/Card';
+import { getCategoryDisplayName } from '../../mocks/shopcategory';
 
 function Contracts({ data }) {
   return (
@@ -22,7 +23,7 @@ function Contracts({ data }) {
         <SwiperSlide key={contract.contractId}>
           <Card
             storeName={contract.enterpriseName}
-            category={contract.category}
+            category={getCategoryDisplayName(contract.category)}
             imageSrc={contract.profileImage}
           />
         </SwiperSlide>

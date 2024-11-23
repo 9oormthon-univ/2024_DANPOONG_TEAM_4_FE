@@ -5,7 +5,10 @@ import { privateApi } from '@/api/axios';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Card from '@shared/ui/Card';
 import Header from '../../layout/Header';
-import { getCategoryName } from '../../mocks/shopcategory';
+import {
+  getCategoryDisplayName,
+  getCategoryName,
+} from '../../mocks/shopcategory';
 
 function ShoplistPage() {
   const navigate = useNavigate();
@@ -42,7 +45,7 @@ function ShoplistPage() {
               <Card
                 key={store.enterprise_id}
                 storeName={store.enterprise_name}
-                category={store.category}
+                category={getCategoryDisplayName(store.category)}
                 imageSrc={store.enterprise_image_url}
               />
             </div>

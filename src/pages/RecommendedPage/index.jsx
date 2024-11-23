@@ -5,6 +5,7 @@ import { privateApi } from '@/api/axios';
 import { useNavigate } from 'react-router-dom';
 
 import Card from '@shared/ui/Card';
+import { getCategoryDisplayName } from '../../mocks/shopcategory';
 
 function RecommendedStorePage() {
   const categoryName =
@@ -34,7 +35,7 @@ function RecommendedStorePage() {
               imageSrc={store.enterprise_image_url}
               key={store.enterprise_id}
               storeName={store.enterprise_name}
-              category={store.category}
+              category={getCategoryDisplayName(store.category)}
             />
           </div>
         ))}

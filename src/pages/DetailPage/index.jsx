@@ -21,6 +21,7 @@ import Tag from '@shared/ui/Tag';
 import FloatingButton from '@shared/ui/FloatingButton';
 
 import { addProducts } from '@/store/features/store-products-reducer';
+import { getCategoryDisplayName } from '../../mocks/shopcategory';
 function DetailPage() {
   const storeId = useParams().id;
 
@@ -90,7 +91,7 @@ function DetailPage() {
       <Header
         id={enterprise_id}
         name={enterprise_name}
-        category={category}
+        category={getCategoryDisplayName(category)}
         favorites={favorites}
         toggleHandler={toggleHandler}
       />

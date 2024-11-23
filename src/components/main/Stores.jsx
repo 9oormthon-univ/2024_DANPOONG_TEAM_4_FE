@@ -10,6 +10,7 @@ import 'swiper/css/navigation';
 import '@shared/ui/swiper-style.css';
 
 import Card from '@shared/ui/Card';
+import { getCategoryDisplayName } from '../../mocks/shopcategory';
 
 function Stores({ data }) {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ function Stores({ data }) {
             <Card
               imageSrc={store.enterprise_image_url}
               storeName={store.enterprise_name}
-              category={store.category}
+              category={getCategoryDisplayName(store.category)}
               onClick={() => navigate(`/detail/${store.enterprise_id}`)}
             />
           </SwiperSlide>
