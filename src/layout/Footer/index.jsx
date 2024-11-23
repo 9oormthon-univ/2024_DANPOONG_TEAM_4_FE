@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 
 import { IoMdNotificationsOutline } from 'react-icons/io';
-import { RxPerson } from 'react-icons/rx';
+import { MdManageSearch } from "react-icons/md";
 import { BiHome } from 'react-icons/bi';
 import { HiOutlineBuildingStorefront } from 'react-icons/hi2';
 import { FaRegHeart } from 'react-icons/fa6';
@@ -13,14 +13,15 @@ function Footer() {
     () => [
       {
         id: 'i1',
-        icon: IoMdNotificationsOutline,
-        url: '/alert',
-        name: '알림',
+        icon: MdManageSearch,
+        url: '/category',
+        name: '검색',
       },
       {
         id: 'i2',
-        icon: RxPerson,
-        name: '마이',
+        icon: IoMdNotificationsOutline,
+        url: '/alert',
+        name: '알림',
       },
       {
         id: 'i3',
