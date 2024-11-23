@@ -47,10 +47,11 @@ const storeProductsReducer = createSlice({
   },
 });
 
+// 액션과 리듀서를 export
 export const {
   addProducts,
   removeProduct,
   increaseQuantity,
   decreaseQuantity,
-} = storeProductsReducer.actions;
-export default storeProductsReducer.reducer;
+} = storeProductsReducer.actions; // 액션 내보내기
+export default storeProductsReducer.reducer; // 리듀서 내보내기

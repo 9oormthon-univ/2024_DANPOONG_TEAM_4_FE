@@ -13,7 +13,10 @@ import CategoryPage from '@pages/ShopPage';
 import ShoplistPage from '@pages/ShopPage/ShoplistPage';
 import MyContractPage from '@pages/MyContractPage';
 import StoreDetailPage from '@pages/MyContractPage/StoreDetailPage';
+import GetAccessPage from '@pages/LoginPage/GetAccessPage';
+import CartPage from '../pages/CartPage';
 import AllowLoginPage from '../pages/LoginPage/AllowLoginPage';
+
 
 // 다른 페이지 컴포넌트들도 여기에 import...
 /* isHeader, isFooter는 default가 true이므로 생략가능합니다
@@ -149,6 +152,15 @@ const RoutesMap = [
     element: <SuccessPage />,
     isHide: true,
   },
+  {
+    path: '/cart/:id',
+    element: <CartPage />,
+    isHeader: true,
+    isFooter: false,
+    leftIcon: true,
+    content: <p className='text-xl'>장바구니</p>,
+    rightIcon: true,
+  }
   // 다른 고객 관련 라우트들...
 ];
 
