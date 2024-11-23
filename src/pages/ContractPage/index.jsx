@@ -1,3 +1,7 @@
+import { useMutation } from '@tanstack/react-query';
+
+import { privateApi } from '@/api/axios';
+
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -18,11 +22,16 @@ function ContractPage() {
 
   const { id, name, products } = useSelector((state) => state.products);
 
-  console.log(products);
+  const postMutation = useMutation({
+    mutationFn: (body) => privateApi.post('/contracts', body),
+    onSettled: () => {
+      navigate(`/credit/${id}`);
+    },
+  });
 
-  const [selectedWeek, setSelectedWeek] = useState('매주');
-  const [selectedDate, setSelectedDate] = useState(['월']);
-  const [selectedDelivery, setSelectedDelivery] = useState('배달');
+  const [selectedWeek, setSelectedWeek] = useState(1);
+  const [selectedDate, setSelectedDate] = useState(['MONDAY']);
+  const [selectedDelivery, setSelectedDelivery] = useState('delivery');
   const [requestedTerm, setRequestedTerm] = useState('');
   const [isCheck, setIsCheck] = useState(false);
 
@@ -33,20 +42,29 @@ function ContractPage() {
     isCheck === true;
 
   const totalPrice = Object.values(products).reduce(
-    (acc, product) => acc + product.price,
+    (acc, product) => acc + product.product_price,
     0,
   );
 
+  const transformedProducts = products.map((product) => ({
+    productId: product.product_id,
+    productName: product.product_name,
+    unit: product.unit,
+    price: product.product_price,
+    quantity: product.quantity,
+  }));
+
   const submitHandler = () => {
-    console.log(
-      products,
-      selectedWeek,
-      selectedDate,
-      selectedDelivery,
-      requestedTerm,
-      isCheck,
-    );
-    navigate(`/credit/${id}`);
+    const data = {
+      enterpriseId: id,
+      deliveryWeek: selectedWeek,
+      deliveryDay: selectedDate.join(','),
+      takeMethod: selectedDelivery,
+      requestedTerm: requestedTerm,
+      totalPrice: totalPrice,
+      products: transformedProducts,
+    };
+    postMutation.mutate(data);
   };
 
   return (

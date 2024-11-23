@@ -15,7 +15,7 @@ function CreditPage() {
   const { name, products } = useSelector((state) => state.products);
 
   const totalPrice = Object.values(products).reduce(
-    (acc, product) => acc + product.price,
+    (acc, product) => acc + product.product_price,
     0,
   );
 

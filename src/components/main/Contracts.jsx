@@ -7,11 +7,9 @@ import 'swiper/css/navigation';
 
 import '@shared/ui/swiper-style.css';
 
-import { DUMMY_CONTRACTS } from '@mocks/contracts';
-
 import Card from '@shared/ui/Card';
 
-function Contracts() {
+function Contracts({ data }) {
   return (
     <Swiper
       modules={[Pagination, Navigation]}
@@ -20,12 +18,12 @@ function Contracts() {
       pagination={{ clickable: true }}
       navigation
     >
-      {DUMMY_CONTRACTS.map((contract) => (
-        <SwiperSlide key={contract.id}>
+      {data.map((contract) => (
+        <SwiperSlide key={contract.contractId}>
           <Card
-            storeName={contract.name}
+            storeName={contract.enterpriseName}
             category={contract.category}
-            term={contract.term}
+            imageSrc={contract.profileImage}
           />
         </SwiperSlide>
       ))}

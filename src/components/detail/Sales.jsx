@@ -20,7 +20,7 @@ function Sales({ products }) {
       navigation
     >
       {products.map((product) => (
-        <SwiperSlide key={product.name}>
+        <SwiperSlide key={product.product_name}>
           <SaleCard product={product} />
         </SwiperSlide>
       ))}
@@ -29,23 +29,22 @@ function Sales({ products }) {
 }
 
 function SaleCard({ product }) {
-  const { name, price } = product;
+  const { product_name, unit, product_price, imageUrl } = product;
 
-  const [productName, unit] = name.split(' ');
   return (
     <div
-      className='rounded-common flex h-44 shrink-0 flex-col items-center gap-1 border bg-white p-2 shadow-md transition-all hover:scale-95'
+      className='flex flex-col items-center gap-1 p-2 transition-all bg-white border shadow-md rounded-common h-44 shrink-0 hover:scale-95'
       onClick={() => {}}
     >
       <div className='w-full px-8 pt-2'>
-        <LazyImage height='65px' />
+        <LazyImage imageSrc={imageUrl + '.jpg'} height='65px' />
       </div>
       <Spacing size={2} />
-      <p>{productName}</p>
+      <p>{product_name}</p>
       <div className='w-full px-4'>
         <span className='flex items-center justify-between'>
-          <p className='text-text100 text-xs'>{unit}, 가격</p>
-          <p className='text-text100 text-sm'>{price}원</p>
+          <p className='text-xs text-text100'>{unit}, 가격</p>
+          <p className='text-sm text-text100'>{product_price}원</p>
         </span>
       </div>
     </div>

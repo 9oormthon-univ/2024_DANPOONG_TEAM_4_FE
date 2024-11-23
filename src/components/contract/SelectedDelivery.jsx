@@ -10,14 +10,14 @@ function SelectedDelivery({ selectedDelivery, onSelectedDelivery }) {
         <TagButton
           className='flex-1'
           label='배달'
-          selected={selectedDelivery === '배달'}
-          onClick={() => onSelectedDelivery('배달')}
+          selected={selectedDelivery === 'delivery'}
+          onClick={() => onSelectedDelivery('delivery')}
         />
         <TagButton
           className='flex-1'
           label='포장'
-          selected={selectedDelivery === '포장'}
-          onClick={() => onSelectedDelivery('포장')}
+          selected={selectedDelivery === 'pickup'}
+          onClick={() => onSelectedDelivery('pickup')}
         />
       </div>
     </div>
