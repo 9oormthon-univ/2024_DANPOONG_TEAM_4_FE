@@ -4,20 +4,21 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 import { useLogin } from '@hooks/use-login';
 
 function AllowLoginPage() {
-  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const { signIn } = useLogin();
+  const [searchParams] = useSearchParams();
+
+  const { getTokenAndAuthenticate } = useLogin();
 
   useEffect(() => {
-    const code = searchParams.get('code'); // URL에서 인가 코드 추출
+    const code = searchParams.get('code');
 
     if (code) {
-      signIn(code); // 인가 코드로 로그인 처리
+      getTokenAndAuthenticate(code);
     } else {
       alert('인가 코드가 없습니다. 다시 로그인 해주세요.');
-      navigate('/login'); // 인가 코드가 없으면 로그인 페이지로 이동
+      navigate('/login');
     }
-  }, [searchParams, signIn, navigate]);
+  }, [searchParams]);
 
   return (
     <div className='flex flex-col items-center justify-center h-screen'>

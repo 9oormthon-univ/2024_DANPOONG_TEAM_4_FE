@@ -1,4 +1,3 @@
-import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -10,12 +9,10 @@ import { ReduxProvider } from '@app/ReduxProvider.jsx';
 import ToastProvider from '@shared/toastify/ToastProvider.jsx';
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <BrowserRouter>
-      <ReduxProvider>
-        <ToastProvider />
-        <App />
-      </ReduxProvider>
-    </BrowserRouter>
-  </StrictMode>,
+  <BrowserRouter>
+    <ReduxProvider>
+      <ToastProvider />
+      <App />
+    </ReduxProvider>
+  </BrowserRouter>,
 );

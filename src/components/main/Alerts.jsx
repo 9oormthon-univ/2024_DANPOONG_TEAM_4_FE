@@ -8,7 +8,8 @@ import 'swiper/css/navigation';
 import '@shared/ui/swiper-style.css';
 
 import { DUMMY_ALERTS } from '@/mocks/alerts';
-import { getTruncate } from '../../shared/util/get-truncate';
+
+import { getTruncate } from '@shared/util/get-truncate';
 
 function Alerts() {
   return (
