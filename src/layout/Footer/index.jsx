@@ -14,7 +14,6 @@ function Footer() {
       {
         id: 'i1',
         icon: MdManageSearch,
-        url: '/search',
         name: '검색',
       },
       {
@@ -37,6 +36,7 @@ function Footer() {
       {
         id: 'i5',
         icon: FaRegHeart,
+        url: '/favorites',
         name: '찜',
       },
     ],
